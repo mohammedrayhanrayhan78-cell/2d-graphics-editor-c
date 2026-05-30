@@ -4,14 +4,13 @@
 #define ROWS 24
 #define COLS 80
 
-extern char canvas[ROWS][COLS];
+extern char grid[ROWS][COLS];
 
-void init_canvas();
-void clear_canvas();
-void display_canvas();
-void display_canvas_with_coords();
-
-int valid_x(int x);
-int valid_y(int y);
+void setupGrid();
+void resetGrid();
+void showGrid();
+void showGridWithNumbers();
+int checkX(int x);
+int checkY(int y);
 
 #endif

@@ -2,51 +2,60 @@
 #include "canvas.h"
 #include "fileio.h"
 
-void save_canvas(const char *filename) {
-    FILE *fp = fopen(filename, "w");
-    if (fp == NULL) {
-        printf("Error: Could not save to '%s'.\n", filename);
+void saveToFile(const char *name)
+{
+    int i, j;
+    FILE *fp = fopen(name, "w");
+    if(fp == NULL)
+    {
+        printf("Could not open file\n");
         return;
     }
 
     fprintf(fp, "+");
-    for (int j = 0; j < COLS; j++) fprintf(fp, "-");
+    for(j = 0; j < COLS; j++)
+        fprintf(fp, "-");
     fprintf(fp, "+\n");
 
-    for (int i = 0; i < ROWS; i++) {
+    for(i = 0; i < ROWS; i++)
+    {
         fprintf(fp, "|");
-        for (int j = 0; j < COLS; j++)
-            fprintf(fp, "%c", canvas[i][j]);
+        for(j = 0; j < COLS; j++)
+            fprintf(fp, "%c", grid[i][j]);
         fprintf(fp, "|\n");
     }
 
     fprintf(fp, "+");
-    for (int j = 0; j < COLS; j++) fprintf(fp, "-");
+    for(j = 0; j < COLS; j++)
+        fprintf(fp, "-");
     fprintf(fp, "+\n");
 
     fclose(fp);
-    printf("Canvas saved to '%s'.\n", filename);
+    printf("Saved to %s\n", name);
 }
 
-void load_canvas(const char *filename) {
-    FILE *fp = fopen(filename, "r");
-    if (fp == NULL) {
-        printf("Error: Could not open '%s'.\n", filename);
+void loadFromFile(const char *name)
+{
+    int i, j;
+    FILE *fp = fopen(name, "r");
+    char line[COLS + 10];
+
+    if(fp == NULL)
+    {
+        printf("File not found\n");
         return;
     }
 
-    char line[COLS + 10];
+    fgets(line, sizeof(line), fp);
 
-    // Skip top border line
-    if (fgets(line, sizeof(line), fp) == NULL) { fclose(fp); return; }
-
-    for (int i = 0; i < ROWS; i++) {
-        if (fgets(line, sizeof(line), fp) == NULL) break;
-        // line format: |<COLS chars>|
-        for (int j = 0; j < COLS && line[j + 1] != '\0'; j++)
-            canvas[i][j] = line[j + 1];
+    for(i = 0; i < ROWS; i++)
+    {
+        if(fgets(line, sizeof(line), fp) == NULL)
+            break;
+        for(j = 0; j < COLS; j++)
+            grid[i][j] = line[j+1];
     }
 
     fclose(fp);
-    printf("Canvas loaded from '%s'.\n", filename);
+    printf("Loaded from %s\n", name);
 }

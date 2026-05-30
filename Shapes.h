@@ -1,42 +1,37 @@
 #ifndef SHAPES_H
 #define SHAPES_H
 
-#define MAX_SHAPES 100
+#define MAX 100
 
-typedef enum {
-    LINE,
-    RECTANGLE,
-    CIRCLE,
-    TRIANGLE
-} ShapeType;
+#define LINE      0
+#define RECTANGLE 1
+#define CIRCLE    2
+#define TRIANGLE  3
 
-typedef struct {
-    int id;
-    ShapeType type;
-    int filled;            // 0 = outline only, 1 = filled
-    int x1, y1, x2, y2;
-    int x3, y3;            // third point for triangle
-    int cx, cy, r;         // circle: center + radius
+typedef struct
+{
+    int num;
+    int kind;
+    int isFilled;
+    int x1, y1;
+    int x2, y2;
+    int x3, y3;
+    int cx, cy, radius;
 } Shape;
 
-extern Shape shapes[MAX_SHAPES];
-extern int shape_count;
+extern Shape shapeList[MAX];
+extern int totalShapes;
 
-/* drawing */
-void draw_line(int x1, int y1, int x2, int y2);
-void draw_rectangle(int x, int y, int w, int h, int filled);
-void draw_circle(int cx, int cy, int r, int filled);
-void draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3);
-
-void redraw_all();
-
-/* CRUD */
-int  add_shape(Shape s);
-int  delete_shape(int id);
-int  modify_shape(int id, Shape new_data);
-void list_shapes();
-
-/* undo */
-void undo_last();
+void putDot(int x, int y);
+void makeLine(int x1, int y1, int x2, int y2);
+void makeRect(int x, int y, int w, int h, int fill);
+void makeCircle(int cx, int cy, int r, int fill);
+void makeTriangle(int x1, int y1, int x2, int y2, int x3, int y3);
+void redrawAll();
+int addShape(Shape s);
+int removeShape(int id);
+int changeShape(int id, Shape newData);
+void printShapes();
+void undoLast();
 
 #endif
