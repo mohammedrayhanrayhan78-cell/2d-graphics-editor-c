@@ -26,7 +26,7 @@ void putDot(int x, int y);
 void makeLine(int x1, int y1, int x2, int y2);
 void makeRect(int x, int y, int w, int h, int fill);
 void makeCircle(int cx, int cy, int r, int fill);
-void makeTriangle(s->x1, s->y1, s->x2, s->y2, s->x3, s->y3, s->isFilled);
+void makeTriangle(int x1, int y1, int x2, int y2, int x3, int y3, int fill);
 void redrawAll();
 int addShape(Shape s);
 int removeShape(int id);
