@@ -7,7 +7,11 @@
 extern char canvas[ROWS][COLS];
 
 void init_canvas();
-void display_canvas();
 void clear_canvas();
+void display_canvas();
+void display_canvas_with_coords();
+
+int valid_x(int x);
+int valid_y(int y);
 
 #endif
