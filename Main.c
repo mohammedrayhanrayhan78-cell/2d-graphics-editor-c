@@ -162,6 +162,8 @@ void modifyMenu()
         s.y2 = getNum("point2 y: ");
         s.x3 = getNum("point3 x: ");
         s.y3 = getNum("point3 y: ");
+        fill = getNum("filled? 1=yes 0=no: ");
+        s.isFilled = fill;
     }
 
     changeShape(id, s);

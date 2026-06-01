@@ -100,11 +100,19 @@ void makeCircle(int cx, int cy, int r, int fill)
     }
 }
 
-void makeTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
+void makeTriangle(int x1, int y1, int x2, int y2, int x3, int y3, int fill)
 {
     int i, j;
-    int minY, maxY, temp;
-    float slope1, slope2;
+    int minY, maxY;
+    float t;
+
+    if(fill == 0)
+    {
+        makeLine(x1, y1, x2, y2);
+        makeLine(x2, y2, x3, y3);
+        makeLine(x3, y3, x1, y1);
+        return;
+    }
 
     minY = y1;
     maxY = y1;
@@ -116,7 +124,6 @@ void makeTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
     for(i = minY; i <= maxY; i++)
     {
         int startX = COLS, endX = -1;
-        float t;
 
         if(y2 != y1) { t = (float)(i - y1)/(y2 - y1); if(t>=0 && t<=1) { j = x1 + t*(x2-x1); if(j<startX) startX=j; if(j>endX) endX=j; } }
         if(y3 != y2) { t = (float)(i - y2)/(y3 - y2); if(t>=0 && t<=1) { j = x2 + t*(x3-x2); if(j<startX) startX=j; if(j>endX) endX=j; } }
@@ -127,6 +134,7 @@ void makeTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
                 putDot(j, i);
     }
 }
+
 void redrawAll()
 {
     int i;
@@ -141,7 +149,7 @@ void redrawAll()
         else if(s->kind == CIRCLE)
             makeCircle(s->cx, s->cy, s->radius, s->isFilled);
         else if(s->kind == TRIANGLE)
-            makeTriangle(s->x1, s->y1, s->x2, s->y2, s->x3, s->y3);
+            makeTriangle(s->x1, s->y1, s->x2, s->y2, s->x3, s->y3, s->isFilled);
     }
 }
 
@@ -265,7 +273,7 @@ void printShapes()
         else if(s->kind == CIRCLE)
             printf("Circle at (%d,%d) radius=%d filled=%d\n", s->cx, s->cy, s->radius, s->isFilled);
         else if(s->kind == TRIANGLE)
-            printf("Triangle (%d,%d) (%d,%d) (%d,%d)\n", s->x1, s->y1, s->x2, s->y2, s->x3, s->y3);
+            printf("Triangle (%d,%d) (%d,%d) (%d,%d) filled=%d\n", s->x1, s->y1, s->x2, s->y2, s->x3, s->y3, s->isFilled);
     }
 }
 
