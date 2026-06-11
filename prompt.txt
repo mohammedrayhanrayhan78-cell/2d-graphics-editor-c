@@ -1,0 +1,56 @@
+Prompts used for 2D Graphics Editor Project
+============================================
+
+1. so what should i do in this project guide me step by step
+
+2. see done with creating a repo
+
+3. the name u gave 2d-graphics-editor-c
+
+4. what next
+
+5. what ABT THE ERRORS
+
+6. is it done now should i put this in pages
+
+7. basically what is moodle i didn't get this word
+
+8. done and it doesn't matter if i do daily pushes the project should be complete so i want u give me the things which will complete the project properly
+
+9. if u dont know about me i will choose everything at once bring up everything we will finish this off now
+
+10. done is it finished i dont need to touch this project now right
+
+11. okay if this is like copied most of my friends use u then what should i do
+
+12. nahh i dont want learn these things if it is useful also not now later cause i am actually busy right now and i want u to give me all these 7-8 codes u gave to be in an human written format and use a different kind variables like a 1st year cse student will write
+
+13. no comments also this is india people over here find out comments and understand if it is ai or not
+
+14. ok so for a mini project will they ask questions about this or they will be allocating marks simply
+
+15. ok thanks for that for now it is not asked but surely we will learn this i dont know if this will help me in my career cause i dont go with c i go with java
+
+16. so done pushing everything okay last question will u be able to guess this or recognise if u are given the code and check if it is ai or not
+
+17. okay can i make a xmax tree with this * in this project if yes how should i do that
+
+18. okay so i should basically write this in the terminal can u give me the input first let us try this
+
+19. ok i want you to add one more line in the rectangle and i want you to fill the triangle with *
+
+20. ok i want you to give me only for the triangle i did it by myself it is not showing option filling u tell me the code once
+
+21. yeah u can repeat urself once again
+
+22. ok now rectangle
+
+23. okay give me some random coordinates for a circle in this only
+
+24. i cant even see that give me in the corner so i see it properly
+
+25. ok done should i now push also
+
+26. thanks done
+
+27. i want you to make this prompts into a txt file my teacher has told to give the prompts in txt file to her
